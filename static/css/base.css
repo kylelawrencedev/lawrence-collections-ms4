@@ -4,7 +4,7 @@ html {
 }
 header {
     background: #2d3142;
-    height: 100px;
+    height: 145px;
 }
 
 .home-image {
@@ -67,24 +67,17 @@ header {
 .text-orange {
     color: #ff934f !important;
 }
-.text-border {
+.eco-clothing {
+    background: #416165 !important;
+}
+.nav-style {
     width: 200px;
-    height: 60px;
-    background: rbga(255,255,255,0.06);
-    position: relative;
-    margin: auto;
-    top: 0.75rem;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    backdrop-filter: blur(20px);
-    border: 2px solild rgba(255,255,255,0.1);
-    box-shadow: 30px 30px 35px rbga(0,0,0,0.25);
+    height: 30px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
 }
+
 .overlay {
     height: 100%;
     width: 100%;
