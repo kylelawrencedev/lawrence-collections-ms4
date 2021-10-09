@@ -66,27 +66,37 @@
                                         alt="{{ product.name }}">
                                 </a>
                                 {% endif %}
-                                <div class="card-body pb-0">
+                                <div class="card-body mx-auto text-center">
                                     <p class="mb-0">{{ product.name }}</p>
+                                    <hr class="w-75 mb-1">
                                 </div>
+                                
                                 <div class="card-footer bg-white pt-0 border-0 text-left">
                                     <div class="row">
                                         <div class="col">
-                                            <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+                                            <p class="lead mb-0 text-left font-weight-bold">£ {{ product.price }}</p>
                                             {% if product.category %}
                                             <p class="small mt-1 mb-0">
                                                 <a class="text-muted"
                                                     href="{% url 'products' %}?category={{ product.category.name }}">
-                                                    <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                                                    <i class="fas fa-tag mr-1 category-icon"></i> {{ product.category.friendly_name }}
                                                 </a>
                                             </p>
                                             {% endif %}
+
                                             {% if product.rating %}
-                                            <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} /
-                                                5</small>
+                                            <small class="text-muted"><i class="fas fa-star mr-1 rating-icon"></i> {{ product.rating }} /
+                                                5.00</small>
                                             {% else %}
-                                            <small class="text-muted">No Rating</small>
+                                            <small class="text-muted"><i class="fas fa-times-circle unknown"></i> No Rating</small>
                                             {% endif %}
+                                            <br>
+                                            {% if product.clothing_material %}
+                                            <small class="text-muted"><i class="fab fa-creative-commons-by material-icon"></i> {{ product.clothing_material }}</small>
+                                            {% else %}
+                                            <small class="text-muted"><i class="fas fa-question-circle unknown"></i> Materials Unknown</small>
+                                            {% endif %}
+
                                         </div>
                                     </div>
                                 </div>

@@ -16,7 +16,7 @@
         <div class="row">
                 <div class="col-12 text-center mt-5">
                     <h2 class="logo-font">
-                        FREE Delivery on ALL ORDERS!!
+                        Free delivery on all orders !! 
                     </h2>
                     <hr class="w-75 mb-1">
                 </div>
@@ -36,19 +36,25 @@
             </div>
             <div class="col-12 col-md-6 col-lg-4">
                 <div class="product-details-container mb-5 mt-md-5">
-                    <p class="mb-0">{{ product.name }}</p>
-                    <p class="lead mb-0 text-left font-weight-bold">£{{ product.price }}</p>
+                    <p class="mb-0 text-uppercase">{{ product.name }}</p>
+                    <p class="lead mb-0 text-left font-weight-bold text-muted">£{{ product.price }}</p>
                     {% if product.category %}
                     <p class="small mt-1 mb-0">
-                        <a class="text-muted" href="{% url 'products' %}?category={{ product.category.name }}">
-                            <i class="fas fa-tag mr-1"></i>{{ product.category.friendly_name }}
+                        <a class="text-dark" href="{% url 'products' %}?category={{ product.category.name }}">
+                            <i class="fas fa-tag mr-1 category-icon"></i>{{ product.category.friendly_name }}
                         </a>
                     </p>
                     {% endif %}
                     {% if product.rating %}
-                        <small class="text-muted"><i class="fas fa-star mr-1"></i>{{ product.rating }} / 5</small>
+                        <small class="text-dark"><i class="fas fa-star mr-1 rating-icon"></i>{{ product.rating }}/ 5.00</small>
                     {% else %}
-                        <small class="text-muted">No Rating</small>
+                        <small class="text-dark"><i class="fas fa-times-circle unknown"></i>No Rating</small>
+                    {% endif %}
+                    <br>
+                    {% if product.clothing_material %}
+                    <small class="text-dark"><i class="fab fa-creative-commons-by material-icon"></i> {{ product.clothing_material }}</small>
+                    {% else %}
+                    <small class="text-dark"><i class="fas fa-question-circle unknown"></i>Materials Unknown</small>
                     {% endif %}
                     {% if request.user.is_superuser %}
                         <small class="ml-3">
@@ -56,7 +62,10 @@
                             <a href="#" class="text-danger">Delete</a>
                         </small>
                     {% endif %}
+                    <hr class="w-100">
+                    <p class="text-uppercase"><strong>Product Details</strong></p>
                     <p class="mt-3">{{ product.description }}</p>
+                    <hr class="w-100">
                     <form class="form" action="{% url 'add_to_bag' product.id %}" method="POST">
                         {% csrf_token %}
                         <div class="form-row">
@@ -74,7 +83,7 @@
                                 </div>
                             {% endif %}
                             <div class="col-12">
-                                <p class="mt-3"><strong>Quantity:</strong></p>
+                                <p class="mt-3 text-uppercase"><strong>Quantity:</strong></p>
                                 <div class="form-group w-50">
                                     <div class="input-group">
                                         <div class="input-group-prepend">

@@ -104,6 +104,18 @@ a.category-badge > span.badge:hover {
 .remove-item {
     cursor: pointer;
 }
+.unknown {
+    color: #cc2d35;
+}
+.category-icon {
+    color: #2d3142;
+}
+.rating-icon {
+    color: #ff934f;
+}
+.material-icon {
+    color: #058ed9;
+}
 /* --------------------------------- Media queries */
 
 /* Slightly larger container on xl screens */
