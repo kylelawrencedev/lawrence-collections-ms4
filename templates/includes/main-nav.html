@@ -7,9 +7,9 @@
                 All Clothing
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
-                <a href="#" class="dropdown-item">By Price</a>
-                <a href="#" class="dropdown-item ">By Rating</a>
-                <a href="#" class="dropdown-item ">By Category</a>
+                <a href="{% url 'products' %}?sort=price&direction=asc" class="dropdown-item">By Price</a>
+                <a href="{% url 'products' %}?sort=rating&direction=desc" class="dropdown-item ">By Rating</a>
+                <a href="{% url 'products' %}?sort=category&direction=asc" class="dropdown-item ">By Category</a>
                 <a href="{% url 'products' %}" class="dropdown-item">View All</a>
             </div>
         </li>
@@ -18,18 +18,18 @@
                 Mens
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="#" class="dropdown-item">Hoodies</a>
-                <a href="#" class="dropdown-item">Shirts</a>
-                <a href="#" class="dropdown-item">View All</a>
+                <a href="{% url 'products' %}?category=mens_hoodie,mens_eco_hoodie" class="dropdown-item">Hoodies</a>
+                <a href="{% url 'products' %}?category=mens_shirts, mens_eco_shirts" class="dropdown-item">Shirts</a>
+                <a href="{% url 'products' %}?category=mens_shirts,mens_hoodie,mens_eco_hoodie, mens_eco_shirts" class="dropdown-item">View All</a>
             </div>
             <li class="nav-item dropdown text-border">
                 <a class="logo-font font-weight-bold nav-link text-dark mx-4" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Womens
                 </a>
                 <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                    <a href="#" class="dropdown-item">Hoodies</a>
-                    <a href="#" class="dropdown-item">Shirts</a>
-                    <a href="#" class="dropdown-item">View All</a>
+                    <a href="{% url 'products' %}?category=womens_eco_hoodie,womens_hoodie" class="dropdown-item">Hoodies</a>
+                    <a href="{% url 'products' %}?category=womens_shirts,womens_eco_shirts" class="dropdown-item">Shirts</a>
+                    <a href="{% url 'products' %}?category=womens_shirts,womens_eco_shirts,womens_eco_hoodie,womens_hoodie,womens_jean" class="dropdown-item">View All</a>
                 </div>
             </li>
         </li>
@@ -38,11 +38,11 @@
                 Eco-Friendly
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="#"
+                <a href="{% url 'products' %}?category=mens_eco_hoodie,womens_eco_hoodie"
                     class="dropdown-item">Hoodies</a>
-                <a href="#"
+                <a href="{% url 'products' %}?category=eco_mens_shirts,eco_womens_shirts"
                     class="dropdown-item">Shirts</a>
-                <a href="#"
+                <a href="{% url 'products' %}?category=eco_mens_shirts,eco_womens_shirt,mens_eco_hoodie,womens_eco_hoodie"
                     class="dropdown-item">View All</a>
             </div>
         </li>
@@ -52,9 +52,9 @@
                     Special Offers
                 </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
-                <a href="#" class="dropdown-item">New Arrivals</a>
-                <a href="#" class="dropdown-item">Clearance</a>
-                <a href="#" class="dropdown-item">All Specials</a>
+                <a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item">New Arrivals</a>
+                <a href="{% url 'products' %}?category=clearance" class="dropdown-item">Clearance</a>
+                <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="dropdown-item">All Specials</a>
             </div>
         </li>
     </ul>
