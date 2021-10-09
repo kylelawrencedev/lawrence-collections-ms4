@@ -25,6 +25,7 @@ class Product(models.Model):
     rating = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     image_url = models.URLField(max_length=1024, null=True, blank=True)
     image = models.ImageField(null=True, blank=True)
+    clothing_material = models.CharField(max_length=256,null=True, blank=True, choices=[('100% cotton', '100% cotton'), ('50/50 cotton/polyester', '50/50 cotton/polyester')])
 
     def __str__(self):
         return self.name
