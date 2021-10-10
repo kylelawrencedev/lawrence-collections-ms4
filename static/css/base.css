@@ -6,7 +6,6 @@ header {
     background: #2d3142;
     height: 145px;
 }
-
 .home-image {
 	background: url('/media/pexels-elle-hughes.jpg') no-repeat top center fixed;
 	background-size: cover;
@@ -67,8 +66,17 @@ header {
 .text-orange {
     color: #ff934f !important;
 }
+.text-green {
+    color: #416165 !important;
+}
 .eco-clothing {
     background: #416165 !important;
+}
+.orange {
+    background: #ff934f !important;
+}
+.dark-blue {
+    background: #058ed9 !important;
 }
 .nav-style {
     width: 200px;
