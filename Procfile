@@ -1,0 +1,1 @@
+web: gunicorn lawrence_collections.wsgi:application
