@@ -10,8 +10,23 @@
 {% endblock %}
 
 {% block content %}
-<section class="home-image">
-    <div class="container h-100">
+<!--Display on small screens-->
+<section class="home-image d-md-none">
+    <div class="container h-50">
+        <div class="row h-50">
+            <div class="col-7 col-md-6">
+                <h4>
+                    <a href="{% url 'products' %}" class="shop-now-button btn btn-sm rounded text-uppercase py-3">
+                        Shop Now
+                    </a>
+                </h4>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Display on medium and larger screens-->
+<section class="home-image d-none d-md-block">
+    <div class="container h-100 mt-5">
         <div class="row h-100">
             <div class="col-7 col-md-6 ml-auto">
                 <h1 class="display-4 logo-font text-dark py-5">
@@ -57,7 +72,7 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
-                    <p class="pb-3 text-center">Shop all our latest and greatest
+                    <p class="p-3 text-center">Shop all our latest and greatest
                     </p>
                     <p class="text-center orange rounded">
                         <a href="{% url 'products' %}?category=mens_shirts,mens_hoodie,mens_eco_hoodie,mens_eco_shirts"
@@ -94,7 +109,7 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
-                    <p class="pb-3 text-center">Shop all our latest and greatest
+                    <p class="p-3 text-center">Shop all our latest and greatest
                     </p>
                     <p class="text-center orange rounded">
                         <a href="{% url 'products' %}?category=womens_shirts,womens_eco_shirts,womens_eco_hoodie,womens_hoodie"
@@ -132,7 +147,7 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
-                    <p class="pb-3 text-center">Shop all our latest and greatest
+                    <p class="p-3 text-center">Shop all our latest and greatest
                     </p>
                     <p class="text-center eco-clothing rounded">
                         <a href="{% url 'products' %}?category=new_arrivals"
