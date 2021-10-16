@@ -78,14 +78,13 @@ header {
 .shop-now-button {
     background: #ff934f;
     color: #2d3142;
-    min-width: 100px;
     position: absolute;
+    min-width: 100px;
     left: 100%;
     top: 100%;
 }
 .shop-now-button:hover, .shop-now-button:active,
-.shop-now-button:focus, .btn-black:hover,
-.btn-black:active, .btn-black:focus {
+.shop-now-button:focus {
     background: #2d3142 !important;
     color: #ff934f !important;
 }
@@ -99,16 +98,18 @@ header {
     }
     .shop-now-button:hover,
     .shop-now-button:active,
-    .shop-now-button:focus,
-    .btn-black:hover,
-    .btn-black:active,
-    .btn-black:focus {
+    .shop-now-button:focus {
         background: #2d3142;
         color: white;
         width: 262px;
 }
 }
-
+.btn-black:hover,
+.btn-black:active,
+.btn-black:focus {
+    background: #222;
+    color: white;
+}
 .btn-orange {
     background: #ff934f;
     color: #2d3142 !important;
