@@ -120,18 +120,17 @@ WSGI_APPLICATION = 'lawrence_collections.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-
-DATABASES = {
-    'default': dj_database_url.parse('postgres://owazqgwoywmabh:2dddaf9b57f2c28df1b601de02e8e8767645aa1d79d62cfe38b714b693076947@ec2-34-249-247-7.eu-west-1.compute.amazonaws.com:5432/damsdnu3auhg89')
-}
-
-#else:
-#    DATABASES = {
-#        'default': {
-#            'ENGINE': 'django.db.backends.sqlite3',
-#            'NAME': BASE_DIR / 'db.sqlite3',
-#            }
-#    }
+if 'DATABASE_URL' in os.environ:
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+            }
+    }
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
