@@ -74,105 +74,6 @@ Frameworks used for site
 * [Django](https://www.djangoproject.com/)
 
 -----
-
-<!-- GETTING STARTED -->
-## Getting Started: Deployment
-
-1. ## **Github**
-
-    * When on GitHub navigate to [gym-records-crud](https://github.com/kylelawrencedev/gym-records-crud) repository. Once at the repository under the name will be 'Settings', which must be clicked.
-    * When on the settings pages, start to scroll down.
-    * While scrolling look out for the heading "Pages"
-    * Under the heading click on the drop-down menu under source. 
-    * In the dropdown menu select either 'None' or 'Branch' as your publishing source.
-    * Once selected, you can select a folder for your publishing source. This can be either "/(root)" or "/docs".
-    * Then click save.
-
-    "If you choose the /docs folder on any branch as your publishing source, then later remove the /docs folder from that branch in your repository, your site won't build, and you'll get a page build error message for a missing /docs folder." 
-    [Configuring a publishing source](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
-
-2. ## **requirements.txt**
-
-    * Create requirements.txt type, "pip3 freeze --local > requirements.txt"
-    * Add file to staging area, "git add ."
-    * Commit message type, "Add requirements.txt"
-    * Push file to heroku, "git push -u heroku master"
-
-3. ## **Heroku:**
-
-    **Signing Up To Heroku:**
-
-      * Navigate to [Heroku](https://heroku.com)
-      * Once there click sign-up and create a new account
-      * Select Python as your Primary Development Language
-      * You will receive a confirmation email with a link to validate your account. If you do not receive the link within 15 minutes check your spam folder, or contact Heroku directly.
-      * Enter a password
-
-      * _Create a New Heroku App_
-
-      * Click "Create New App", name your app something unique (Do not use any spaces, uses hyphens "-")
-      * Choose the closest region from the list
-      * Click "Create App"
-
-    **Heroku Toolbelt**
-
-      * In the terminal type, "npm install; -g heroku"
-      * Log into heroku using the command "heroku login" in your terminal
-      * Log in using your previously used details.
-      * Enter the command, "heroku apps". This will show which apps you have
-      * In the terminal enter, "--app (apps name)"
-
-    **Pushing to Heroku**
-
-      * Add all your files to the staging area by using, "git add -A" or "git add ."
-      * Your commit messsage will be, "Deployment to Heroku"
-      * Go back to the heroku site, and head to "settings" for the app. Copy the Heroku Git URL
-      * In the terminal type, "git remote add", and for the name, "heroku". Then paste the URL.
-
-6. ## **Procfile**
-
-    * In terminal type, "echo web: python run.py > Procfile" (Has to be a capital P for Procfile)
-    * git add Procfile
-    * git commit -m "Add Procfile"
-    * and git push
-    * In settings find "Reveal Config Vars"
-    * Add the key"IP" and value of "0.0.0.0"
-    * Add the key "PORT" and the value of "5000"
-    * Add the "SECRET_KEY", and the value of the key in your env.py file"
-    * Click the deply tab, And connect to GitHub
-    * Get your repository name, paste it into Heroku and click Search
-    * Your repository should show up, click connect.
-    * Go back to your terminal, type "git remote rm heroku"
-    * git add .
-    * git commit -m "Push to Github"
-    * git push origin master
-    * Go back to Heroku and click "Deploy Branch"
-
-7. ## **Cloning my repository**
-
-    * Go to []() repository
-    * Above where all the files are listed there will be a button that says "Code"
-    * When clicked, a drop-down menu will appear. 
-    * Click on "Open with GitHub Desktop"
-    [Cloning a repository from GitHub to GitHub Desktop](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/cloning-a-repository-from-github-to-github-desktop)
-
-
------
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-
-
-## Defensive Design
-### Brute-Forcing 
-
-* If a user is not logged into the site and they paste the url for a link that only logged in users can access, they will be redirected back to the login page.
-* Pages that cannot be accessed without being logged in are, overview, profile, add workout, edit workout, add record, edit record and search.
-* Pages that can be accessed by anybody are, the home page and login/create account page.
-
------
-
 <!-- ROADMAP -->
 ## Roadmap
 1. ### _Strategy Plane_
@@ -334,6 +235,105 @@ Testing can be found [HERE](.TESTING.md)
 ## Database Structure
 
 You can see the data schema [here](./DATABASE_STRUCTURE.md)
+
+<!-- GETTING STARTED -->
+## Getting Started: Deployment
+
+1. ## **Github**
+
+    * When on GitHub navigate to [gym-records-crud](https://github.com/kylelawrencedev/gym-records-crud) repository. Once at the repository under the name will be 'Settings', which must be clicked.
+    * When on the settings pages, start to scroll down.
+    * While scrolling look out for the heading "Pages"
+    * Under the heading click on the drop-down menu under source. 
+    * In the dropdown menu select either 'None' or 'Branch' as your publishing source.
+    * Once selected, you can select a folder for your publishing source. This can be either "/(root)" or "/docs".
+    * Then click save.
+
+    "If you choose the /docs folder on any branch as your publishing source, then later remove the /docs folder from that branch in your repository, your site won't build, and you'll get a page build error message for a missing /docs folder." 
+    [Configuring a publishing source](https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site)
+
+2. ## **requirements.txt**
+
+    * Create requirements.txt type, "pip3 freeze --local > requirements.txt"
+    * Add file to staging area, "git add ."
+    * Commit message type, "Add requirements.txt"
+    * Push file to heroku, "git push -u heroku master"
+
+3. ## **Heroku:**
+
+    **Signing Up To Heroku:**
+
+      * Navigate to [Heroku](https://heroku.com)
+      * Once there click sign-up and create a new account
+      * Select Python as your Primary Development Language
+      * You will receive a confirmation email with a link to validate your account. If you do not receive the link within 15 minutes check your spam folder, or contact Heroku directly.
+      * Enter a password
+
+      * _Create a New Heroku App_
+
+      * Click "Create New App", name your app something unique (Do not use any spaces, uses hyphens "-")
+      * Choose the closest region from the list
+      * Click "Create App"
+
+    **Heroku Toolbelt**
+
+      * In the terminal type, "npm install; -g heroku"
+      * Log into heroku using the command "heroku login" in your terminal
+      * Log in using your previously used details.
+      * Enter the command, "heroku apps". This will show which apps you have
+      * In the terminal enter, "--app (apps name)"
+
+    **Pushing to Heroku**
+
+      * Add all your files to the staging area by using, "git add -A" or "git add ."
+      * Your commit messsage will be, "Deployment to Heroku"
+      * Go back to the heroku site, and head to "settings" for the app. Copy the Heroku Git URL
+      * In the terminal type, "git remote add", and for the name, "heroku". Then paste the URL.
+
+6. ## **Procfile**
+
+    * In terminal type, "echo web: python run.py > Procfile" (Has to be a capital P for Procfile)
+    * git add Procfile
+    * git commit -m "Add Procfile"
+    * and git push
+    * In settings find "Reveal Config Vars"
+    * Add the key"IP" and value of "0.0.0.0"
+    * Add the key "PORT" and the value of "5000"
+    * Add the "SECRET_KEY", and the value of the key in your env.py file"
+    * Click the deply tab, And connect to GitHub
+    * Get your repository name, paste it into Heroku and click Search
+    * Your repository should show up, click connect.
+    * Go back to your terminal, type "git remote rm heroku"
+    * git add .
+    * git commit -m "Push to Github"
+    * git push origin master
+    * Go back to Heroku and click "Deploy Branch"
+
+7. ## **Cloning my repository**
+
+    * Go to []() repository
+    * Above where all the files are listed there will be a button that says "Code"
+    * When clicked, a drop-down menu will appear. 
+    * Click on "Open with GitHub Desktop"
+    [Cloning a repository from GitHub to GitHub Desktop](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/cloning-a-repository-from-github-to-github-desktop)
+
+
+-----
+
+<!-- USAGE EXAMPLES -->
+## Usage
+
+
+
+## Defensive Design
+### Brute-Forcing 
+
+* If a user is not logged into the site and they paste the url for a link that only logged in users can access, they will be redirected back to the login page.
+* Pages that cannot be accessed without being logged in are, overview, profile, add workout, edit workout, add record, edit record and search.
+* Pages that can be accessed by anybody are, the home page and login/create account page.
+
+-----
+
 
 
 <!-- CONTRIBUTING -->
