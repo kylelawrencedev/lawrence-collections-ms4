@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+<div class="row mt-4">
+    <div class="col-12 mt-4">
+        <div class="col-12 text-center">
+            <h2 class="logo-font">
+                Wishlist
+            </h2>
+        </div>
+    </div>
+</div>
+{% if wishlist %}
+{% for product in wishlist  %}
+
+<div class="card mb-3 rounded">
+    <div class="row g-0">
+        <div class="col-md-2">
+            {% if product.image %}
+            <a href="{{ product.image.url }}" target="_blank">
+                <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+            </a>
+            {% else %}
+            <a href="#">
+                <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+            </a>
+            {% endif %}
+        </div>
+        <div class="col-md-10">
+            <div class="card-body">
+                <h5 class="card-title">{{product.name}}</h5>
+                <p class="card-text">{{product.description}}</p>
+                <p class="card-text"><small class="text-muted">{{product.price}}</small></p>
+                <a type="button" class="btn btn-primary fw500 btn-sm"
+                    href="{% url 'add_to_wishlist' product.id %}">Remove from Wishlist</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% else %}
+<p class="lead mb-5">Nothing Added to Wishlist <i class="far fa-frown text-orange"></i></p>
+{% endif %}
+</div>
+
+
+{% endblock %}

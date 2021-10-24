@@ -114,6 +114,12 @@ header {
     background: #ff934f;
     color: #2d3142 !important;
 }
+.btn-orange:hover,
+.btn-orange:active,
+.btn-orange:focus {
+    background: #2d3142;
+    color: white !important;
+}
 
 .btn-outline-black {
     background: white;
