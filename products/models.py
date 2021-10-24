@@ -33,7 +33,7 @@ class Product(models.Model):
                  '50/50 cotton/polyester', '50/50 cotton/polyester')])
     image = models.ImageField(null=True, blank=True)
     users_wishlist = models.ManyToManyField(
-        UserProfile, related_name='add_to_wishlist', blank=True)
+        UserProfile(models.Model), related_name='add_to_wishlist', blank=True)
 
     def __str__(self):
         return self.name
