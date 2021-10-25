@@ -72,9 +72,9 @@ def add_to_wishlist(request, product_id):
     """ Add and remove items from users wishlist """
     product = get_object_or_404(Product, pk=product_id)
     if product.users_wishlist.filter(id=request.user.id).exists():
-        product.users_wishlist.remove(request.user)
+        product.users_wishlist.remove(request.user.is_authenticated)
         messages.success(request, product.name + " has been removed from your Wishlist")
     else:
-        product.users_wishlist.add(request.user)
+        product.users_wishlist.add(request.user.is_authenticated)
         messages.success(request, "Added " + product.name + " to your Wishlist")
     return HttpResponseRedirect(request.META["HTTP_REFERER"])
