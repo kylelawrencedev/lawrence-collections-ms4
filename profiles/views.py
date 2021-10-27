@@ -54,27 +54,27 @@ def order_history(request, order_number):
     return render(request, template, context)
 
 
-@login_required
-def wishlist(request):
+#@login_required
+#def wishlist(request):
 
-    products = Product.objects.filter(
-        users_wishlist=request.user.is_authenticated)
-    context = {
-        'wishlist': products
-    }
-    template = 'profiles/wishlist.html'
+#   product = Product.objects.filter(
+#        wishlists=request.user)
+#    context = {
+#        'wishlists': wishlists,
+#    }
+#    template = 'profiles/wishlist.html'
+#
+#    return render(request, template, context)
 
-    return render(request, template, context)
 
-
-@login_required
-def add_to_wishlist(request, product_id):
-    """ Add and remove items from users wishlist """
-    product = get_object_or_404(Product, pk=product_id)
-    if product.users_wishlist.filter(id=request.user.id).exists():
-        product.users_wishlist.remove(request.user.is_authenticated)
-        messages.success(request, product.name + " has been removed from your Wishlist")
-    else:
-        product.users_wishlist.add(request.user.is_authenticated)
-        messages.success(request, "Added " + product.name + " to your Wishlist")
-    return HttpResponseRedirect(request.META["HTTP_REFERER"])
+#@login_required
+#def add_to_wishlist(request, item_id):
+#    """ Add and remove items from users wishlist """
+#    product = get_object_or_404(Product, pk=item_id)
+#    if product.wishlists.filter(id=request.user.id).exists():
+#        product.wishlists.remove(request.user)
+#        messages.success(request, product.name + " has been removed from your Wishlist")
+#    else:
+#       product.wishlists.add(request.user)
+#        product.messages.success(request, "Added " + product.name + " to your Wishlist")
+#    return HttpResponseRedirect(request.META["HTTP_REFERER"])
