@@ -42,7 +42,7 @@ def order_inquiry(request):
 
     context = {
         'form': form,
-        'on_inquiry_page': True,
+        'on_profile_page': True,
         'orders': orders,
         }
     return render(request, 'order_inquiry/order_inquiry.html', context)
