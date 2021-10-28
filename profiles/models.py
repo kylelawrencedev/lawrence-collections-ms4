@@ -41,17 +41,3 @@ def create_or_update_user_profiles(sender, instance, created, **kwargs):
         UserProfile.objects.create(user=instance)
     # Existing users: just save the profile
     instance.userprofile.save()
-
-
-class OrderInquiry(models.Model):
-    """ Allow users to contact store for general
-    enquiries or about an order
-    """
-    full_name = models.CharField(max_length=256)
-    email = models.EmailField(max_length=254, null=False, blank=False)
-    phone_number = models.CharField(max_length=20, null=False, blank=False)
-    order_number = models.CharField(max_length=32, null=False, editable=False)
-    message = models.TextField(null=False, blank=False)
-
-    def __str__(self):
-        return self.full_name

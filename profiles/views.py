@@ -1,13 +1,11 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.core.mail import send_mail
-from django.conf import settings
 
 from checkout.models import Order
 
 
-from .models import UserProfile, OrderInquiry
+from .models import UserProfile
 from .forms import UserProfileForm
 
 
@@ -54,32 +52,6 @@ def order_history(request, order_number):
     }
 
     return render(request, template, context)
-
-
-def order_inquiry(request):
-
-    if request.method == 'POST':
-        message = request.POST['message']
-        order_number = request.POST['order_number']
-
-        inquiry = OrderInquiry( message=message,
-                               order_number=order_number)
-
-        # send email
-        send_mail('Order Inquiry',
-                  'There has been an inquiry for '
-                  '. Sign into the admin panel for more info.',
-                  'kylelawrence19@gmail.com',
-                  [settings.DEFAULT_FROM_EMAIL])
-
-        messages.success(
-            request,
-            "Your inquiry has been submitted, " +
-            "we will get back to you shortly.")
-
-        return redirect(request, 'profiles/profile.html')
-
-
 
 #@login_required
 #def wishlist(request):

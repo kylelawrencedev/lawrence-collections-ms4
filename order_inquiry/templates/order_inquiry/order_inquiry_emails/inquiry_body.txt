@@ -1,0 +1,9 @@
+Dear Lawrence Collections Admin
+
+A customer is enquiring about {{inquiry.order_number}}
+
+{{inquiry.message}}
+
+Please check on the enquiry and respond to {{inquiry.name }} at {{ inquiry.contact_email }}.
+
+Thank you.

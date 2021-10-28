@@ -1,5 +1,5 @@
 from django import forms
-from .models import UserProfile, OrderInquiry
+from .models import UserProfile
 
 
 class UserProfileForm(forms.ModelForm):
