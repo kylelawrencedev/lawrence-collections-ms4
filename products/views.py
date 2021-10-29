@@ -102,6 +102,39 @@ def product_detail(request, product_id):
 
 
 @login_required
+def edit_review(request, review_id):
+    review = get_object_or_404(Review, pk=review_id)
+    if request.user == review.review_user or request.user.is_superuser:
+        if request.method == 'POST':
+            review_form = ReviewForm(request.POST, instance=review)
+            if review_form.is_valid():
+                review_form.save()
+                messages.success(
+                    request, 'You have successfully updated your Review')
+                return redirect(reverse('products'))
+            else:
+                messages.error(request, 'Error! \
+                    Please check your form is valid.')
+        else:
+            review_form = ReviewForm(instance=review)
+            messages.info(request, f'Editing Review \
+                "{review.review_title}"')
+    else:
+        messages.error(request, (
+                f'Sorry only user {review.review_user} can edit this review.'))
+        return redirect(reverse('product_detail'))
+
+    template = 'products/edit_review.html'
+    context = {
+        'review_form': review_form,
+        'review': review,
+        'on_profile_page': True
+    }
+
+    return render(request, template, context)
+
+
+@login_required
 def add_product(request):
     """ Add a product to the store """
     if not request.user.is_superuser:
