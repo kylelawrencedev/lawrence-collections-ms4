@@ -1,4 +1,6 @@
 from django.db import models
+from django.utils import timezone
+from django.contrib.auth.models import User
 
 
 class Category(models.Model):
@@ -34,3 +36,22 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Review(models.Model):
+    """ A model for users to leave reviews on products """
+    product_id = models.ForeignKey(Product, null=True, related_name='reviews',
+                                   blank=True, on_delete=models.SET_NULL)
+    review_title = models.CharField(max_length=15)
+    review_text = models.TextField(max_length=280)
+    review_date = models.DateTimeField(default=timezone.now)
+    review_user = models.ForeignKey(User, null=True,
+                                    blank=True,
+                                    on_delete=models.SET_NULL,
+                                    related_name='review')
+
+    class Meta:
+        ordering = ['-review_date']
+
+    def __str__(self):
+        return self.review_title
