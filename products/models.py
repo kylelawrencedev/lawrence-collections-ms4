@@ -42,7 +42,7 @@ class Review(models.Model):
     """ A model for users to leave reviews on products """
     product_id = models.ForeignKey(Product, null=True, related_name='reviews',
                                    blank=True, on_delete=models.SET_NULL)
-    review_title = models.CharField(max_length=15)
+    review_title = models.CharField(max_length=30)
     review_text = models.TextField(max_length=280)
     review_date = models.DateTimeField(default=timezone.now)
     review_user = models.ForeignKey(User, null=True,
