@@ -31,7 +31,7 @@ class Product(models.Model):
     clothing_material = models.CharField(
          max_length=256, null=True, blank=True, choices=[(
              '100% cotton', '100% cotton'), (
-                 '50/50 cotton/polyester', '50/50 cotton/polyester')])
+                 '50/50', '50/50')])
     image = models.ImageField(null=True, blank=True)
 
     def __str__(self):
