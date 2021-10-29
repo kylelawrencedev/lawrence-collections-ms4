@@ -156,7 +156,8 @@
                 </div>
                 {% if review.review_user == user or request.user.is_superuser %}
                     <small class="p-3">
-                        <a class="link-button" href="{% url 'edit_review' review.id %}">Edit</a>
+                        <a href="{% url 'edit_review' review.id %}">Edit </a>|
+                        <a class="link-button text-danger" href="{% url 'delete_review' review.id %}">Delete</a>
                     </small>
                 {% endif %}
                 {% endfor %}
