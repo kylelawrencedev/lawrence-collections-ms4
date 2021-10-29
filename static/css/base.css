@@ -1,20 +1,13 @@
-  
+
 html {
     height: 100%;
 }
 header {
     background: #2d3142;
 }
-.home-image {
-	background: url('/media/pexels-elle-hughes.jpg') no-repeat top center;
-	background-size: 100%;
-    height: 40vh;
-}
-@media (min-width: 992px) {
-    .home-image {
-        background: url('/media/pexels-elle-hughes.jpg') no-repeat top center;
-        background-size: 100%;
-        height: 80vh;
+@media (max-width:430px) {
+    .navbar {
+        padding: .2rem .8rem ;
     }
 }
 .navbar-light .navbar-toggler-icon {
