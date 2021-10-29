@@ -94,8 +94,7 @@ def product_detail(request, product_id):
     context = {
         'product': product,
         'reviews': reviews,
-        'review_form': review_form,
-        'on_profile_page': True
+        'review_form': review_form
     }
 
     return render(request, template, context)
