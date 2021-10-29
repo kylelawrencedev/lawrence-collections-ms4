@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+404
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col s12 center">
+        <h1 class="animate__animated animate__shakeX"> 403 Entrance Denied</h1>
+        <iframe src="https://giphy.com/embed/wKc00qp7XTCVhXFJev" width="480" height="356" frameBorder="0"
+            class="giphy-embed" allowFullScreen></iframe>
+        <p><a href="https://giphy.com/gifs/wKc00qp7XTCVhXFJev">via GIPHY</a></p>
+        <h4>Cant Come Here!!!</h4>
+        <div class="row">
+            <div class="col s12">
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'home' %}" class="dropdown-item">Home</a>
+                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                {% else %}
+                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

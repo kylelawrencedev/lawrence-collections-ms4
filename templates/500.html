@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+404
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col">
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col s12 center">
+        <h1 class="animate__animated animate__shakeX"> 500 </h1>
+        <iframe src="https://giphy.com/embed/1Bh2zyW2yuBEalV0rO" width="480" height="364" frameBorder="0"
+            class="giphy-embed" allowFullScreen></iframe>
+        <p><a href="https://giphy.com/gifs/sorry-zuckerberg-testimony-1Bh2zyW2yuBEalV0rO">via GIPHY</a></p>
+        <h4>Oops, Sorry about that!!</h4>
+        <div class="row">
+            <div class="col s12">
+                {% if request.user.is_authenticated %}
+                <a href="{% url 'home' %}" class="dropdown-item">Home</a>
+                <a href="{% url 'account_logout' %}" class="dropdown-item">Logout</a>
+                {% else %}
+                <a href="{% url 'account_signup' %}" class="dropdown-item">Register</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
