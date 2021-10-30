@@ -37,7 +37,7 @@ def add_to_bag(request, item_id):
                     request,
                     (
                         f'Updated size {size.upper()} "{product.name}"' +
-                        'quantity to {bag[item_id]["items_by_size"][size]}'
+                        f' quantity to {bag[item_id]["items_by_size"][size]}'
                     ),
                 )
             else:
@@ -85,7 +85,7 @@ def adjust_bag(request, item_id):
                 request,
                 (
                     f'Updated size {size.upper()} "{product.name}" quantity' +
-                    'to {bag[item_id]["items_by_size"][size]}'
+                    f' to {bag[item_id]["items_by_size"][size]}'
                 ),
             )
         else:
