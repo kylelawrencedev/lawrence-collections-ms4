@@ -80,7 +80,7 @@ Frameworks used for site
 
 	**User Stories**
 	
-	  ![product-screenshot](media/user_stories.jpg)
+	  ![product-screenshot](media/user_stories_.jpg)
 
 2. ### _Scope Plane_
 
@@ -233,8 +233,16 @@ Testing can be found [HERE](.TESTING.md)
 -----
 
 ## Database Structure
+When making the structure of the databse, I had to think of how the data would interact with each other. I wanted it to be logical and easy to follow. Every product it linked to a category, every review is linked to a user account, and every order is linked to a user.
 
-You can see the data schema [here](./DATABASE_STRUCTURE.md)
+Every order has its own order number that gets created once the users purchase is successful. This order number is then linked to the users account. If a user is not registered the order number is linked to the email they provide at checkout.
+
+During development I used SQLite, which is provided by Django. For production I used Heroku Postgres. For production mode I also used Amazon Web Services (AWS) to host all my static and media files.
+
+You can see the data structure [here](DATABASE.md)
+
+-----
+
 
 <!-- GETTING STARTED -->
 ## Getting Started: Deployment
