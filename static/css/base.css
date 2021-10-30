@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Antic+Didone&family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@700&family=Open+Sans&display=swap');
 html {
     height: 100%;
     
 }
 body {
-    font-family: 'Antic Didone', serif;
+    font-family: 'Merriweather', serif;
 }
 header {
     background: #2d3142;
@@ -137,6 +137,9 @@ header {
 }
 .text-orange {
     color: #ff934f !important;
+}
+.text-blue {
+    color: #058ed9 !important;
 }
 .text-green {
     color: #416165 !important;
