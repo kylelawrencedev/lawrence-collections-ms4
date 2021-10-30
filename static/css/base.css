@@ -13,6 +13,7 @@ header {
     background-color: #2d3142;
     border-radius: 0rem;
     color: #ff934f;
+    margin-bottom: 0;
 }
 @media (max-width:430px) {
     .navbar {
@@ -385,4 +386,5 @@ a.category-badge > span.badge:hover {
 }
 .order_number {
     word-break: break-all;
+    color: #058ed9;
 }
