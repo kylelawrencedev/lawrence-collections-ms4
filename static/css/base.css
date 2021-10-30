@@ -1,9 +1,18 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Antic+Didone&family=Open+Sans&display=swap');
 html {
     height: 100%;
+    
+}
+body {
+    font-family: 'Antic Didone', serif;
 }
 header {
     background: #2d3142;
+}
+.jumbotron {
+    background-color: #2d3142;
+    border-radius: 0rem;
+    color: #ff934f;
 }
 @media (max-width:430px) {
     .navbar {

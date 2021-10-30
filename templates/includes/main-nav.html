@@ -1,11 +1,11 @@
-
 <div class="collapse navbar-collapse" id="main-nav">
     <ul class="navbar-nav mx-auto">
         <li class="nav-item d-block d-md-none">
             <a href="{% url 'home' %}" class="logo-font font-weight-bold nav-link text-white mx-4">Home</a>
         </li>
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-white mx-4 " href="#" id="all-products-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-white mx-4 " href="#" id="all-products-link"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 All Clothing
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
@@ -18,31 +18,38 @@
             </div>
         </li>
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-white mx-4" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-white mx-4" href="#" id="clothing-link"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Mens
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
                 <hr class="w-75 dropdown-hr">
                 <a href="{% url 'products' %}?category=mens_hoodie,mens_eco_hoodie" class="dropdown-item">Hoodies</a>
                 <a href="{% url 'products' %}?category=mens_shirts,mens_eco_shirts" class="dropdown-item">T-Shirts</a>
-                <a href="{% url 'products' %}?category=mens_shirts,mens_hoodie,mens_eco_hoodie,mens_eco_shirts" class="dropdown-item">View All</a>
+                <a href="{% url 'products' %}?category=mens_shirts,mens_hoodie,mens_eco_hoodie,mens_eco_shirts"
+                    class="dropdown-item">View All</a>
                 <hr class="w-75 dropdown-hr">
             </div>
         </li>
         <li class="nav-item dropdown">
-            <a class="logo-font font-weight-bold nav-link text-white mx-4" href="#" id="specials-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-white mx-4" href="#" id="specials-link"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Womens
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
                 <hr class="w-75 dropdown-hr">
-                <a href="{% url 'products' %}?category=womens_eco_hoodie,womens_hoodie" class="dropdown-item">Hoodies</a>
-                <a href="{% url 'products' %}?category=womens_shirts,womens_eco_shirts" class="dropdown-item">T-Shirts</a>
-                <a href="{% url 'products' %}?category=womens_shirts,womens_eco_shirts,womens_eco_hoodie,womens_hoodie" class="dropdown-item">View All</a>
+                <a href="{% url 'products' %}?category=womens_eco_hoodie,womens_hoodie"
+                    class="dropdown-item">Hoodies</a>
+                <a href="{% url 'products' %}?category=womens_shirts,womens_eco_shirts"
+                    class="dropdown-item">T-Shirts</a>
+                <a href="{% url 'products' %}?category=womens_shirts,womens_eco_shirts,womens_eco_hoodie,womens_hoodie"
+                    class="dropdown-item">View All</a>
                 <hr class="w-75 dropdown-hr">
             </div>
         </li>
         <li class="nav-item dropdown eco-clothing rounded">
-            <a class="logo-font font-weight-bold nav-link text-white mx-4" href="#" id="clothing-link" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <a class="logo-font font-weight-bold nav-link text-white mx-4" href="#" id="clothing-link"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Eco-Friendly
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
@@ -57,15 +64,38 @@
             </div>
         </li>
         <li class="nav-item dropdown">
-                <a class="logo-font font-weight-bold nav-link text-white mx-4" href="#" id="specials-link"
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Special Offers
-                </a>
+            <a class="logo-font font-weight-bold nav-link text-white mx-4" href="#" id="specials-link"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Special Offers
+            </a>
             <div class="dropdown-menu border-0" aria-labelledby="specials-link">
                 <hr class="w-75 dropdown-hr">
                 <a href="{% url 'products' %}?category=new_arrivals" class="dropdown-item">New Arrivals</a>
                 <a href="{% url 'products' %}?category=clearance" class="dropdown-item">Clearance</a>
-                <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="dropdown-item">All Specials</a>
+                <a href="{% url 'products' %}?category=new_arrivals,deals,clearance" class="dropdown-item">All
+                    Specials</a>
+                <hr class="w-75 dropdown-hr">
+            </div>
+        </li>
+        <li class="nav-item dropdown d-block d-md-none">
+            <a class="logo-font font-weight-bold nav-link text-white mx-4 " href="#" id="all-products-link"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Social Media
+            </a>
+            <div class="dropdown-menu border-0" aria-labelledby="all-products-link">
+                <hr class="w-75 dropdown-hr">
+                <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" class="dropdown-item">
+                    <i class="fab fa-instagram"></i> 
+                    Instagram
+                </a>
+                <a href="https://www.facebook.com/add.a.link/" target="_blank" rel="noreferrer" class="dropdown-item">
+                    <i class="fab fa-facebook"></i> 
+                    Facebook
+                </a>
+                <a href="https://www.spotify.com/us/connect/" target="_blank" rel="noreferrer" class="dropdown-item">
+                    <i class="fab fa-spotify"></i>
+                    Spotify
+                </a>
                 <hr class="w-75 dropdown-hr">
             </div>
         </li>

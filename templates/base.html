@@ -61,9 +61,9 @@
               <a href="{% url 'home' %}"><img src="https://lawrence-collections-ms4.s3.eu-west-2.amazonaws.com/media/lawrence_collections_white.png" alt="Lawrence Collections Logo"
                       height="80px" width="40px"></a>
           </div>
-          <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
+          <div class="col-12 col-lg-3 my-auto py-1 py-lg-0">
               <a href="{% url 'home' %}" class="nav-link main-logo-link">
-                  <h3 class="logo-font text-orange my-0"><strong>Lawrence Collections</strong></h3>
+                  <h3 class="logo-font text-orange my-0 text-center"><strong>Lawrence Collections</strong></h3>
               </a>
           </div>
           <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
@@ -80,8 +80,26 @@
                   </div>
               </form>
           </div>
-          <div class="col-12 col-lg-3 my-auto py-1 py-lg-0">
+          <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
               <ul class="list-inline list-unstyled text-center text-lg-right my-0">
+                <li class="list-inline-item dropdown">
+                    <a class="text-white nav-link" href="#" id="user-options" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        <div class="text-center">
+                            <div><i class="far fa-thumbs-up fa-lg"></i></div>
+                            <p class="my-0">Social Media</p>
+                        </div>
+                    </a>
+
+                    <div class="dropdown-menu border-0" aria-labelledby="user-options">
+                        <a href="https://www.instagram.com/" target="_blank" rel="noreferrer" class="dropdown-item"><i
+                                class="fab fa-instagram"></i> Instagram</a>
+                        <a href="https://www.facebook.com/add.a.link/" target="_blank" rel="noreferrer"
+                            class="dropdown-item"><i class="fab fa-facebook"></i> Facebook</a>
+                        <a href="https://www.spotify.com/us/connect/" target="_blank" rel="noreferrer"
+                            class="dropdown-item"><i class="fab fa-spotify"></i> Spotify</a>
+                    </div>
+                </li>
                   <li class="list-inline-item dropdown">
                       <a class="text-white nav-link" href="#" id="user-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           <div class="text-center">
@@ -162,8 +180,8 @@
             $('.toast').toast('show');
         </script>
         {% endblock %}
+<footer>
 
-
-    
+</footer>
   </body>
 </html>

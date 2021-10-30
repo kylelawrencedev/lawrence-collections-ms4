@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block page_header %}
-<div class="container header-container mb-5">
+<div class="container header-container mb-4">
     <div class="row">
         <div class="col"></div>
     </div>
@@ -13,9 +13,9 @@
 <div class="overlay"></div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col text-center mt-5">
+        <div class="col text-center">
             <h2 class="logo-font">
-                Lawrence Collections
+                Our Ranges
             </h2>
             <hr class="w-75 mb-3">
         </div>
@@ -185,5 +185,17 @@
             </div>
         </div>
     </div>
-    </section>
+</div>
+    <div class="jumbotron" >
+        <h1 class="display-4 text-center">Lawrence Collections</h1>
+        <p class="lead text-center">Shop our vast range of clothing. From mens and womens to environmentally friendly clothing. Treat
+            yourself today!</p>
+        <hr class="my-4">
+        <p class="text-center">All orders come with FREE DELIVERY, no minimum spend <i class="fas fa-shipping-fast"></i></p>
+        <p class="lead text-center">
+            <a class="btn btn-orange btn-lg" href="{% url 'products' %}?sort=price&direction=desc" role="button">
+                Shop Now
+            </a>
+        </p>
+    </div>
     {% endblock %}
