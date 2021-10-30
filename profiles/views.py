@@ -25,7 +25,6 @@ def profile(request):
     else:
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
-    
 
     template = 'profiles/profile.html'
     context = {
@@ -39,6 +38,7 @@ def profile(request):
 
 @login_required
 def order_history(request, order_number):
+    """ View to show users a previous order """
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.info(request, (
@@ -53,28 +53,3 @@ def order_history(request, order_number):
     }
 
     return render(request, template, context)
-
-#@login_required
-#def wishlist(request):
-
-#   product = Product.objects.filter(
-#        wishlists=request.user)
-#    context = {
-#        'wishlists': wishlists,
-#    }
-#    template = 'profiles/wishlist.html'
-#
-#    return render(request, template, context)
-
-
-#@login_required
-#def add_to_wishlist(request, item_id):
-#    """ Add and remove items from users wishlist """
-#    product = get_object_or_404(Product, pk=item_id)
-#    if product.wishlists.filter(id=request.user.id).exists():
-#        product.wishlists.remove(request.user)
-#        messages.success(request, product.name + " has been removed from your Wishlist")
-#    else:
-#       product.wishlists.add(request.user)
-#        product.messages.success(request, "Added " + product.name + " to your Wishlist")
-#    return HttpResponseRedirect(request.META["HTTP_REFERER"])

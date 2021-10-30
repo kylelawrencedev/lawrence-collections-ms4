@@ -12,7 +12,7 @@ import time
 
 
 class StripeWH_Handler:
-    """Handle Stripe webhooks"""
+    """Handle Stripe webhooks """
 
     def __init__(self, request):
         self.request = request
@@ -72,10 +72,10 @@ class StripeWH_Handler:
                 profile.default_town_or_city = shipping_details.address.city
                 profile.default_street_address1 = (
                     shipping_details.address.line1
-                    )
+                )
                 profile.default_street_address2 = (
                     shipping_details.address.line2
-                    )
+                )
                 profile.default_county = shipping_details.address.state
                 profile.save()
 
@@ -134,7 +134,8 @@ class StripeWH_Handler:
                         )
                         order_line_item.save()
                     else:
-                        for size, quantity in item_data['items_by_size'].items():
+                        for size, quantity in item_data['items_by_size'].items(
+                        ):
                             order_line_item = OrderLineItem(
                                 order=order,
                                 product=product,
