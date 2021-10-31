@@ -54,8 +54,8 @@
                                         {% for item in order.lineitems.all %}
                                             <li class="small">
                                                 {% if item.product_size %}
-                                                    Size '{{ item.product_size|upper }}''
-                                                {% endif %}{{ item.product.name }} x {{ item.quantity }}
+                                                    Size {{ item.product_size|upper }}
+                                                {% endif %}'{{ item.product.name }}' x {{ item.quantity }}
                                             </li>
                                         {% endfor %}
                                     </ul>

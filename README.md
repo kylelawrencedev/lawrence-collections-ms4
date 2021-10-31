@@ -440,6 +440,7 @@ You can see the data structure [here](DATABASE.md)
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 
+* [README Template](https://github.com/othneildrew/Best-README-Template)
 * [Font Awesome](https://fontawesome.com)
 * [Kaggle for product images](https://www.kaggle.com/paramaggarwal/fashion-product-images-dataset)
 * Boutique Ado course lessons. Helped build the foundations of this project
