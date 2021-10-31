@@ -55,8 +55,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![][product-screenshot]](https://example.com)
-
 I have been wanting to create a clothing store for ages. I was tempted to create one for my MS3 project, but was told that I would learn about creating a store for my MS4 project. So now I can finally have a crack at it. 
 
 I enjoy browsing and user simple sites. Some sites can get complicated. This site is simple and clean. I has all the necessary features and it is accessible and userable for users of all age groups.
@@ -65,13 +63,6 @@ Goals:
 * Have a clothing site that is user-friendly and is accesible for users with disabilities
 * Users feel like they can trust the site, as there are plenty of sites out there that look unsafe as soon as the sites loads. 
 * Want users to be able to implement their own DRY principles. Nothing worse than having to keep repeating yourself when shopping. 
-
-### Built With
-
-Frameworks used for site
-* [Bootstrap](https://getbootstrap.com)
-* [JQuery](https://jquery.com)
-* [Django](https://www.djangoproject.com/)
 
 -----
 
@@ -209,6 +200,8 @@ Frameworks used for site
 	* Change Backgrounds. This option will allow users with dyslexia to pick a background colour that is more suitable for them.
   * Discount Roulette Wheel. This feature will give users with an account the opportunity to spin a wheel and get a discount. Get user will only be able to spin the wheel once a day, or once per week.
   * Quick Buy. This feature will allow users to add items into their basket from the products overview page. They will not need to navigate to the products details page. This will make it easier and faster for shoppers to add products to their basket.
+  * Users reviews and order queries are stored and shown on their account page
+  * Users recently viewed products show up at the bottom of every product details page.
 
 5. ### _Surface Plane_
 
@@ -220,7 +213,7 @@ Frameworks used for site
 
 	**Font**
 
-	* Google Fonts was used to import the fonts Antic Didone & Opens Sans into the base.css file. These fonts were used throughout the site.
+	* Google Fonts was used to import the fonts Merriweather (weight:700) & Opens Sans into the base.css file. These fonts were used throughout the site.
 
   
 ## Wireframes
@@ -230,6 +223,32 @@ Wireframes can be found [HERE](./WIREFRAMES.md)
 
 ## Testing
 Testing can be found [HERE](.TESTING.md)
+
+-----
+# Built With
+
+Frameworks used for site
+* [Bootstrap](https://getbootstrap.com)
+* [JQuery](https://jquery.com)
+* [Django](https://www.djangoproject.com/)
+
+## Technology
+
+* Stripe - Process users payments
+* Gmail - Send users confirmation emails
+* Gunicorn - Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX. The Gunicorn server is broadly compatible with various web frameworks, simply implemented, light on server resources, and fairly speedy.
+* Pillow - The Python Imaging Library adds image processing capabilities to your Python interpreter. This library provides extensive file format support, an efficient internal representation, and fairly powerful image processing capabilities
+* boto3 - Boto is the Amazon Web Services (AWS) SDK for Python. It enables Python developers to create, configure, and manage AWS services, such as EC2 and S3.
+
+## Languages
+
+* HTML
+* CSS3
+* Javascript
+* JQuery
+* Python
+* Jinja
+* Bson and Json
 
 -----
 
@@ -243,6 +262,13 @@ During development I used SQLite, which is provided by Django. For production I 
 You can see the data structure [here](DATABASE.md)
 
 -----
+
+## Databases Used
+
+* Heroku Postgress for production
+* sqLite3 for development
+* AWS S3 for static and media files
+
 
 
 <!-- GETTING STARTED -->
@@ -326,14 +352,75 @@ You can see the data structure [here](DATABASE.md)
     * Click on "Open with GitHub Desktop"
     [Cloning a repository from GitHub to GitHub Desktop](https://docs.github.com/en/free-pro-team@latest/desktop/contributing-and-collaborating-using-github-desktop/cloning-a-repository-from-github-to-github-desktop)
 
+8. ## **AWS**
+  * AWS is Amazons cloud based storage service. This service was used to store my static and image files
+
+    1. Create a AWS account. Selecting the free account version will perfect
+    2. Navigate to the AWS management console
+    3. In the search bar search s3, this can be found in the services section. Open s3 and create a new bucket.
+    4. Enter the name of your bucket (projects name). Select the region that is closest to you
+    5. Uncheck block public access box. Then click create bucket
+    6. Once you have created the bucket, click on the bucket and enter the following details:
+        - Under Properties, turn on static website hosting
+        - Under Permissions, paste in the CORS configuration:
+        ```
+            [
+                {
+                    "AllowedHeaders": [
+                        "Authorization"
+                        ],
+                    "AllowedMethods": [
+                        "GET"
+                        ],
+                    "AllowedOrigins": [
+                        "*"
+                        ],
+                    "ExposeHeaders": []
+                }
+            ] 
+        ```
+        - Navigate to bucket policy and select policy generator. This will create a security policy for the bucket
+        - Policy type will be s3 bucket policy, allow all principles by selecting the star. For action select get object.
+        - Copy the ARN (Amazon resource name) from the bucket policy tab. Paste the copied ARN into the box at the bottom. Once added click Add Statement. Click Generate Policy, copy this policy into the bucket policy editor
+        - Do not click save yet. First allow access to all resources in the bucket. You can do this by add "/*" at the end of the resource key.
+        - Go to access control list tab and set the list objects permission for everyone under the Public Access section.
+    7. Now that the s3 bucket is set up. You now need to create a user in order to access the bucket. To do this use another Amazon service called IAM (identity and Access Management)
+    8. In the search box type in IAM and click on the result
+    9. Click groups and create a new group. Do not worry about any of the tabs, click all the way through to create the group.
+    10. Create the policy to access the bucket by clicking policies and then create policy
+    11. Navigate to the JSON tab, import managed policy, search for s3 and import S3 Full Access Policy.
+    12. Go back to the bucket policy page and copy the ARN, paste the ARN in the JSON section
+    13. Click review policy, give the policy a name (project name + policy at the end) and a description, then click create policy
+    14. Attach the policy to the group that was just created. Go to groups, manage my group, click attach policy, search for the policy that was just created and select it. Then click attach policy
+    15. Create a user for the group. On the user's page, click add user, create a new user and give them programmatic access. Then select next
+    16. Add newly created user to group. Download the CSV file, this file contains the users access key and secret access key. These kkeys will be needed to authenticate the user from the django app. MAKE SURE YOU SAFELY STORE THE CSV FILE, IT WILL NOT BE SEEN AGAIN
+    17. Connect django to s3, you'll need to install 2 new packages :
+      * pip3 install boto3
+      * pip3 install django-storages
+    18. Freeze requirements.txt
+      * pip3 freeze > requirements.txt
+    19. Add 'storages' to installed apps in settings.py file
+    20. To connect Django to s3, you'll need to add some parameters in settings.py to tell django which bucket it is communicating with:
+          ```
+          AWS_STORAGE_BUCKET_NAME = 'bucket name'
+          AWS_S3_REGION_NAME = 'region'
+          AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+          AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+          AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
+          ```
+    21. Go to Heroku, in the convig vars, add USE_AWS = True. Add the AWS access key and secret access key
+    22. Remove disable collectstatic from heroku config vars
+    23. Create a file called custom_storages.py
+    24. In settings.py add the following statements to tell django where the static files will come form in production:
+          ```
+          STATICFILES_STORAGE = 'custom_storages.StaticStorage'
+          STATICFILES_LOCATION = 'static'
+          DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
+          MEDIAFILES_LOCATION = 'media'
+          ```
+    25. Then git commit all changes
 
 -----
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-
-
 ## Defensive Design
 ### Brute-Forcing 
 
@@ -343,22 +430,16 @@ You can see the data structure [here](DATABASE.md)
 
 -----
 
-
-
 <!-- CONTRIBUTING -->
 ## Contributing
 
-**greatly appreciated**.
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+* Thank you to the slack community and my mentor for all the help
 
 -----
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
+
 * [Font Awesome](https://fontawesome.com)
-* [Home Page Main Image](https://www.pexels.com/photo/woman-wearing-white-crew-neck-t-shirt-with-black-canon-dslr-on-her-shoulder-1549200/) 
+* [Kaggle for product images](https://www.kaggle.com/paramaggarwal/fashion-product-images-dataset)
+* Boutique Ado course lessons. Helped build the foundations of this project
